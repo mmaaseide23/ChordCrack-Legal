@@ -10,8 +10,8 @@
             line-height: 1.6;
             margin: 0;
             padding: 20px;
-            background: linear-gradient(135deg, #1a5f3f 0%, #2d7a57 100%);
-            color: white;
+            background: rgb(15, 33, 47);
+            color: rgb(240, 245, 247);
             min-height: 100vh;
             display: flex;
             align-items: center;
@@ -19,26 +19,27 @@
         }
         .container {
             max-width: 600px;
-            background: rgba(255, 255, 255, 0.95);
-            color: #333;
+            background: rgba(36, 56, 66, 0.95);
+            color: rgb(240, 245, 247);
             padding: 60px 40px;
             border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
             text-align: center;
             backdrop-filter: blur(10px);
+            border: 1px solid rgba(51, 199, 140, 0.2);
         }
         h1 {
-            color: #1a5f3f;
+            color: rgb(51, 199, 140);
             font-size: 2.5rem;
             font-weight: bold;
             margin-bottom: 20px;
-            background: linear-gradient(135deg, #1a5f3f, #2d7a57);
+            background: linear-gradient(135deg, rgb(51, 199, 140), rgb(102, 219, 153));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
         .subtitle {
-            color: #666;
+            color: rgb(166, 191, 199);
             font-size: 1.2rem;
             margin-bottom: 40px;
             font-weight: 300;
@@ -52,51 +53,61 @@
         .link-card {
             display: block;
             padding: 25px 30px;
-            background: white;
-            border: 2px solid #e0e0e0;
+            background: rgba(30, 46, 53, 0.8);
+            border: 2px solid rgba(51, 199, 140, 0.3);
             border-radius: 15px;
             text-decoration: none;
-            color: #333;
+            color: rgb(240, 245, 247);
             transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
         .link-card:hover {
-            border-color: #1a5f3f;
+            border-color: rgb(51, 199, 140);
             transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(26, 95, 63, 0.15);
+            box-shadow: 0 10px 25px rgba(51, 199, 140, 0.2);
+            background: rgba(30, 46, 53, 1);
         }
         .link-title {
             font-size: 1.3rem;
             font-weight: 600;
-            color: #1a5f3f;
+            color: rgb(51, 199, 140);
             margin-bottom: 5px;
         }
         .link-description {
             font-size: 0.95rem;
-            color: #666;
+            color: rgb(166, 191, 199);
         }
         .footer {
             margin-top: 40px;
             padding-top: 30px;
-            border-top: 1px solid #e0e0e0;
-            color: #888;
+            border-top: 1px solid rgba(51, 199, 140, 0.3);
+            color: rgb(115, 140, 148);
             font-size: 0.9rem;
         }
         .app-icon {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, #1a5f3f, #2d7a57);
-            border-radius: 18px;
+            width: 120px;
+            height: 120px;
+            background: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwIiBoZWlnaHQ9IjEyMCIgdmlld0JveD0iMCAwIDEyMCAxMjAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxkZWZzPgo8bGluZWFyR3JhZGllbnQgaWQ9InBhaW50MF9saW5lYXJfMF8xIiB4MT0iNjAiIHkxPSIwIiB4Mj0iNjAiIHkyPSIxMjAiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KPHN0b3Agc3RvcC1jb2xvcj0iIzMzQzdEQyIvPgo8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiM2NkRCOTkiLz4KPC9saW5lYXJHcmFkaWVudD4KPC9kZWZzPgo8cGF0aCBkPSJNNjAgNUMyOC4wNzUgNSA1IDI4LjA3NSA1IDYwQzUgOTEuOTI1IDI4LjA3NSAxMTUgNjAgMTE1Qzg1LjQgMTE1IDEwNi44IDk4LjIgMTEzIDc1SDYwVjQ1SDEwN0MxMTQgNjMuNSAxMDIuNSA5MCA2MCA5MEM0MS41IDkwIDMwIDc1IDMwIDYwQzMwIDQ1IDQxLjUgMzAgNjAgMzBDNzMuNSAzMCA4NS41IDM3IDkyIDQ4TDExMCAzM0MxMDAuNSAxNS41IDgxLjUgNSA2MCA1WiIgZmlsbD0idXJsKCNwYWludDBfbGluZWFyXzBfMSkiLz4KPC9zdmc+Cg==') center/contain no-repeat;
+            border-radius: 24px;
+            margin: 0 auto 30px;
+            box-shadow: 0 10px 30px rgba(51, 199, 140, 0.3);
+        }
+        .logo-container {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 30px;
+            position: relative;
+            border-radius: 24px;
+            box-shadow: 0 10px 30px rgba(51, 199, 140, 0.3);
+            overflow: hidden;
+        }
+        .logo-svg {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgb(51, 199, 140), rgb(102, 219, 153));
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 30px;
-            box-shadow: 0 10px 30px rgba(26, 95, 63, 0.3);
-        }
-        .icon-text {
-            color: white;
-            font-size: 2rem;
-            font-weight: bold;
         }
         @media (max-width: 600px) {
             .container {
@@ -111,8 +122,26 @@
 </head>
 <body>
     <div class="container">
-        <div class="app-icon">
-            <span class="icon-text">🎸</span>
+        <div class="logo-container">
+            <div class="logo-svg">
+                <svg width="80" height="80" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Guitar pick outline -->
+                    <path d="M200 50C120 50 50 100 50 170C50 220 80 270 120 310C140 330 160 350 180 370C190 380 195 385 200 385C205 385 210 380 220 370C240 350 260 330 280 310C320 270 350 220 350 170C350 100 280 50 200 50Z" 
+                          stroke="rgba(255,255,255,0.9)" 
+                          stroke-width="8" 
+                          fill="none"/>
+                    
+                    <!-- Guitar strings -->
+                    <line x1="160" y1="120" x2="160" y2="280" stroke="rgba(255,255,255,0.8)" stroke-width="6" stroke-linecap="round"/>
+                    <line x1="180" y1="110" x2="180" y2="290" stroke="rgba(255,255,255,0.8)" stroke-width="6" stroke-linecap="round"/>
+                    <line x1="200" y1="105" x2="200" y2="295" stroke="rgba(255,255,255,0.8)" stroke-width="6" stroke-linecap="round"/>
+                    <line x1="220" y1="110" x2="220" y2="290" stroke="rgba(255,255,255,0.8)" stroke-width="6" stroke-linecap="round"/>
+                    <line x1="240" y1="120" x2="240" y2="280" stroke="rgba(255,255,255,0.8)" stroke-width="6" stroke-linecap="round"/>
+                    
+                    <!-- Crossbar (fret) -->
+                    <line x1="140" y1="200" x2="260" y2="200" stroke="rgba(255,255,255,0.9)" stroke-width="8" stroke-linecap="round"/>
+                </svg>
+            </div>
         </div>
         
         <h1>ChordCrack</h1>
