@@ -15,18 +15,18 @@
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
             color: #333;
-            background: #f8f9fa;
+            background: #1a2f3a;
         }
         
         /* Header & Navigation */
         header {
-            background: linear-gradient(135deg, #1a5f3f 0%, #2d7a57 100%);
+            background: linear-gradient(135deg, #1a2f3a 0%, #2a4754 100%);
             color: white;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
         }
         
         nav {
@@ -44,6 +44,11 @@
             display: flex;
             align-items: center;
             gap: 10px;
+        }
+        
+        .logo img {
+            height: 32px;
+            width: auto;
         }
         
         .nav-links {
@@ -70,7 +75,7 @@
         
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, #1a5f3f 0%, #2d7a57 100%);
+            background: linear-gradient(135deg, #1a2f3a 0%, #2a4754 100%);
             color: white;
             padding: 150px 20px 80px;
             text-align: center;
@@ -120,7 +125,7 @@
         .features h2 {
             text-align: center;
             font-size: 2.5rem;
-            color: #1a5f3f;
+            color: #4fd1a1;
             margin-bottom: 60px;
         }
         
@@ -131,31 +136,38 @@
         }
         
         .feature-card {
-            background: white;
+            background: rgba(42, 71, 84, 0.6);
             padding: 30px;
             border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
             transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid rgba(79, 209, 161, 0.2);
         }
         
         .feature-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            box-shadow: 0 10px 30px rgba(79, 209, 161, 0.2);
+            border-color: rgba(79, 209, 161, 0.4);
         }
         
         .feature-icon {
             font-size: 2.5rem;
             margin-bottom: 15px;
+            color: #4fd1a1;
         }
         
         .feature-card h3 {
-            color: #1a5f3f;
+            color: #4fd1a1;
             margin-bottom: 10px;
+        }
+        
+        .feature-card p {
+            color: #b8d4de;
         }
         
         /* Support Section */
         .support {
-            background: white;
+            background: rgba(26, 47, 58, 0.95);
             padding: 80px 20px;
         }
         
@@ -167,7 +179,7 @@
         .support h2 {
             text-align: center;
             font-size: 2.5rem;
-            color: #1a5f3f;
+            color: #4fd1a1;
             margin-bottom: 60px;
         }
         
@@ -177,11 +189,11 @@
         }
         
         .faq-item {
-            background: #f8f9fa;
+            background: rgba(42, 71, 84, 0.6);
             margin-bottom: 20px;
             border-radius: 10px;
             overflow: hidden;
-            border: 1px solid #e0e0e0;
+            border: 1px solid rgba(79, 209, 161, 0.2);
         }
         
         .faq-question {
@@ -191,12 +203,12 @@
             justify-content: space-between;
             align-items: center;
             font-weight: 600;
-            color: #1a5f3f;
+            color: #4fd1a1;
             transition: background 0.3s;
         }
         
         .faq-question:hover {
-            background: #e8f5e8;
+            background: rgba(79, 209, 161, 0.1);
         }
         
         .faq-answer {
@@ -204,6 +216,7 @@
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.3s ease, padding 0.3s ease;
+            color: #b8d4de;
         }
         
         .faq-item.active .faq-answer {
@@ -221,7 +234,7 @@
         
         /* Contact Section */
         .contact {
-            background: linear-gradient(135deg, #1a5f3f 0%, #2d7a57 100%);
+            background: linear-gradient(135deg, #2a4754 0%, #4fd1a1 100%);
             color: white;
             padding: 60px 20px;
             text-align: center;
@@ -258,7 +271,7 @@
         
         /* Legal Links */
         .legal {
-            background: #f8f9fa;
+            background: rgba(26, 47, 58, 0.95);
             padding: 40px 20px;
         }
         
@@ -277,7 +290,7 @@
         }
         
         .legal-links a {
-            color: #1a5f3f;
+            color: #4fd1a1;
             text-decoration: none;
             font-weight: 500;
         }
@@ -286,9 +299,13 @@
             text-decoration: underline;
         }
         
+        .legal p {
+            color: #b8d4de;
+        }
+        
         /* Footer */
         footer {
-            background: #1a5f3f;
+            background: #1a2f3a;
             color: white;
             text-align: center;
             padding: 30px 20px;
@@ -341,7 +358,8 @@
     <header>
         <nav>
             <div class="logo">
-                🎸 ChordCrack
+                <img src="logo.png" alt="ChordCrack Logo">
+                ChordCrack
             </div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
@@ -362,9 +380,6 @@
         <div class="app-badges">
             <a href="#" class="app-badge">
                 <img src="https://developer.apple.com/app-store/marketing/guidelines/images/badge-download-on-the-app-store.svg" alt="Download on the App Store">
-            </a>
-            <a href="#" class="app-badge">
-                <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play">
             </a>
         </div>
     </section>
