@@ -5,6 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ChordCrack - Master Guitar Chords by Ear</title>
     
+    <script>
+        const APP_STORE_ID = "6752358083";
+    </script>
+    
+    <!-- Smart App Banner for iOS Safari -->
+    <script>
+        if (APP_STORE_ID !== "6752358083") {
+            const metaTag = document.createElement('meta');
+            metaTag.name = 'apple-itunes-app';
+            metaTag.content = `app-id=${APP_STORE_ID}`;
+            document.head.appendChild(metaTag);
+        }
+    </script>
+    
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-HN6EG2B2XP"></script>
     <script>
@@ -388,7 +402,7 @@
         <h1>Master Guitar Chords by Ear</h1>
         <p>Train your musical ear through fun, gamified challenges.<br>No guitar required – just your ears and dedication!</p>
         <div class="app-badges">
-            <a href="#" class="app-badge">
+            <a id="app-store-link" href="#" class="app-badge">
                 <img src="https://developer.apple.com/app-store/marketing/guidelines/images/badge-download-on-the-app-store.svg" alt="Download on the App Store">
             </a>
         </div>
@@ -573,6 +587,20 @@
     </footer>
 
     <script>
+        // Set up App Store link dynamically
+        document.addEventListener('DOMContentLoaded', function() {
+            const appStoreLink = document.getElementById('app-store-link');
+            if (APP_STORE_ID !== "YOUR_APP_ID_HERE") {
+                appStoreLink.href = `https://apps.apple.com/app/id${APP_STORE_ID}`;
+            } else {
+                // If no ID is set, you might want to hide the button or show a coming soon message
+                appStoreLink.onclick = function(e) {
+                    e.preventDefault();
+                    alert('App coming soon to the App Store!');
+                };
+            }
+        });
+
         // FAQ Accordion
         document.querySelectorAll('.faq-question').forEach(question => {
             question.addEventListener('click', () => {
