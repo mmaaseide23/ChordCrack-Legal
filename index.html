@@ -9,7 +9,7 @@
     
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ChordCrack - Master Guitar Chords by Ear</title>
+    <title>ChordCrack 2.0 - Master Guitar Chords by Ear</title>
     
     <script>
         const APP_STORE_LINK = "https://apps.apple.com/us/app/chordcrack/id6752358083";
@@ -140,6 +140,74 @@
             height: 60px;
         }
         
+        .version-badge {
+            display: inline-block;
+            background: rgba(79, 209, 161, 0.2);
+            border: 1px solid #4fd1a1;
+            color: #4fd1a1;
+            padding: 6px 18px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-bottom: 20px;
+            opacity: 1;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        /* What's New Section */
+        .whats-new {
+            max-width: 1200px;
+            margin: 80px auto;
+            padding: 0 20px;
+        }
+
+        .whats-new h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #4fd1a1;
+            margin-bottom: 20px;
+        }
+
+        .whats-new > p {
+            text-align: center;
+            color: #b8d4de;
+            font-size: 1.1rem;
+            margin-bottom: 50px;
+        }
+
+        .whats-new-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 30px;
+        }
+
+        .new-feature {
+            background: rgba(42, 71, 84, 0.6);
+            padding: 28px;
+            border-radius: 15px;
+            border: 1px solid rgba(79, 209, 161, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .new-feature:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(79, 209, 161, 0.2);
+            border-color: rgba(79, 209, 161, 0.4);
+        }
+
+        .new-feature h3 {
+            color: #4fd1a1;
+            margin-bottom: 10px;
+            font-size: 1.15rem;
+        }
+
+        .new-feature p {
+            color: #b8d4de;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
         /* Features Section */
         .features {
             max-width: 1200px;
@@ -366,8 +434,12 @@
                 font-size: 1.1rem;
             }
             
-            .features h2, .support h2 {
+            .features h2, .support h2, .whats-new h2 {
                 font-size: 2rem;
+            }
+
+            .whats-new-grid {
+                grid-template-columns: 1fr;
             }
             
             .contact-methods {
@@ -388,6 +460,7 @@
             </div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
+                <li><a href="#whats-new">What's New</a></li>
                 <li><a href="#features">Features</a></li>
                 <li><a href="#support">Support</a></li>
                 <li><a href="#contact">Contact</a></li>
@@ -399,12 +472,45 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
+        <p class="version-badge">Version 2.0 — Major Update</p>
         <h1>Master Guitar Chords by Ear</h1>
         <p>Train your musical ear through fun, gamified challenges.<br>No guitar required – just your ears and dedication!</p>
         <div class="app-badges">
             <a href="https://apps.apple.com/us/app/chordcrack/id6752358083" class="app-badge" target="_blank" rel="noopener">
                 <img src="https://developer.apple.com/app-store/marketing/guidelines/images/badge-download-on-the-app-store.svg" alt="Download on the App Store">
             </a>
+        </div>
+    </section>
+
+    <!-- What's New Section -->
+    <section id="whats-new" class="whats-new">
+        <h2>What's New in 2.0</h2>
+        <p>ChordCrack 2.0 is a major update packed with new ways to learn, practice, and explore chords.</p>
+        <div class="whats-new-grid">
+            <div class="new-feature">
+                <h3>📚 Chord Reference Library</h3>
+                <p>Browse all 52+ chords organized by category — Basic, Barre, Blues, and Power. See finger positions on an interactive guitar neck visualization and play audio in multiple modes: full chord, slow strum, individual strings, bass, and treble.</p>
+            </div>
+            <div class="new-feature">
+                <h3>📶 Offline Mode</h3>
+                <p>Download all chord audio for offline play. Tap "Download for Offline" in Settings to cache ~80 audio files in one go. Once downloaded, the app works without an internet connection.</p>
+            </div>
+            <div class="new-feature">
+                <h3>🎨 Redesigned Gameplay UI</h3>
+                <p>Game screens have been completely redesigned to be compact and fit on one screen without scrolling. Hint dots, progress bars, audio controls, and chord selection grids are all tighter. Result feedback is now a sleek inline horizontal bar.</p>
+            </div>
+            <div class="new-feature">
+                <h3>⏸️ Consistent Pause Menu</h3>
+                <p>All game modes — Daily Challenge, Power Chords, Barre Chords, Blues Chords, and Mixed Practice — now have a pause button with a proper pause menu offering Resume, Restart, and Quit.</p>
+            </div>
+            <div class="new-feature">
+                <h3>🧠 Smart Coaching for New Users</h3>
+                <p>Instead of a tutorial you skip, contextual coaching tips appear during your first actual game. Five coaching moments guide you step by step through playing audio, picking chords, using hints, unlocking audio options, and scoring.</p>
+            </div>
+            <div class="new-feature">
+                <h3>⚙️ Dedicated Settings Screen</h3>
+                <p>A new settings screen accessible via the gear icon on the home screen. Includes About, Reset Tutorial, Sound Effects toggle, Analytics toggle, Privacy Settings, Export Data, Sign Out, Delete Account, and Offline Mode cache management.</p>
+            </div>
         </div>
     </section>
 
@@ -456,7 +562,7 @@
                         <span class="faq-arrow">▼</span>
                     </div>
                     <div class="faq-answer">
-                        <p>ChordCrack plays guitar chord sounds, and you identify them by ear. The app uses a scientifically-designed progression system that starts with basic chords and gradually introduces more complex variations. Each correct answer earns you points and XP, while the hint system ensures you're always learning, never stuck.</p>
+                        <p>ChordCrack plays guitar chord sounds, and you identify them by ear. The app uses a progression system that starts with basic chords and gradually introduces more complex variations. Each correct answer earns you points and XP, while the hint system ensures you're always learning, never stuck. New in 2.0: smart coaching guides first-time players through the game step by step, and a redesigned compact UI keeps everything on one screen.</p>
                     </div>
                 </div>
                 
@@ -496,10 +602,30 @@
                         <span class="faq-arrow">▼</span>
                     </div>
                     <div class="faq-answer">
-                        <p>Practice Modes let you focus on specific chord types: Power Chords for rock fundamentals, Barre Chords for advanced patterns, Blues Chords for 7ths and extensions, or Mixed Mode for all chord types. Each mode tracks separate statistics so you can identify your strengths and areas for improvement.</p>
+                        <p>Practice Modes let you focus on specific chord types: Power Chords for rock fundamentals, Barre Chords for advanced patterns, Blues Chords for 7ths and extensions, or Mixed Practice for all chord types. Each mode tracks separate statistics so you can identify your strengths and areas for improvement. In 2.0, all practice modes now include a proper pause menu with Resume, Restart, and Quit options.</p>
                     </div>
                 </div>
                 
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What is the Chord Reference Library?</span>
+                        <span class="faq-arrow">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>New in 2.0, the Chord Reference Library lets you browse all 52+ chords organized by category (Basic, Barre, Blues, Power). For each chord, you can see finger positions on a guitar neck visualization and play audio in multiple modes — full chord, slow strum, individual strings, bass, and treble. It's a great way to study chords outside of gameplay.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Can I use ChordCrack offline?</span>
+                        <span class="faq-arrow">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes! In version 2.0, you can download all chord audio for offline play. Go to Settings and tap "Download for Offline" to cache approximately 80 audio files. Once downloaded, the app works without an internet connection. You can manage your cached files from the same settings screen.</p>
+                    </div>
+                </div>
+
                 <div class="faq-item">
                     <div class="faq-question">
                         <span>How does the hint system work?</span>
@@ -536,7 +662,7 @@
                         <span class="faq-arrow">▼</span>
                     </div>
                     <div class="faq-answer">
-                        <p>Subscriptions can be managed through your device's app store settings. On iOS, go to Settings > Your Name > Subscriptions. On Android, open Google Play Store > Menu > Subscriptions. Select ChordCrack and choose to cancel. You'll retain access until the end of your billing period.</p>
+                        <p>Subscriptions can be managed through your device's settings. On iOS, go to Settings > Your Name > Subscriptions. Select ChordCrack and choose to cancel. You'll retain access until the end of your billing period.</p>
                     </div>
                 </div>
                 
@@ -582,7 +708,7 @@
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2025 Michael Maaseide. All rights reserved.</p>
+        <p>&copy; 2025–2026 Michael Maaseide. All rights reserved.</p>
         <p>Made with ❤️ for guitarists worldwide</p>
     </footer>
 
