@@ -35,4 +35,7 @@ Bricolage Grotesque was downloaded from the official Google Fonts repository: ht
 - All product images loaded; local page had no Google Analytics script and no audio/video elements. Palette contrast checked numerically.
 - Reduce Motion CSS reviewed; OS preference was not changed. No hardware screen-reader audit or independent Safari run was performed.
 
-The existing GitHub Pages main/root deployment is unchanged. This is a review-branch source update only; publication still requires approval.
+On November 2, the owner explicitly authorized publishing this redesign to
+`chordcrack.com`. Publication uses the existing GitHub Pages main/root workflow
+and custom domain `www.chordcrack.com`; no hosting or audience settings change.
+The repository's Pages deployment status records the published commit.
