@@ -29,6 +29,8 @@ Bricolage Grotesque was downloaded from the official Google Fonts repository: ht
 - Actual Chrome layout inspected at 1440, 768, 390 and 320 CSS pixels. No horizontal document overflow in final measurements.
 - A temporary 200% root-text fixture at 320 CSS pixels exposed overflow in the hero, controls and email address. Those were corrected; all seven FAQ answers open together without overflow.
 - All four chord selections and their note positions/descriptions checked. Arrow-key selection is immediate. Mobile navigation, menu Escape and all FAQ disclosures checked.
+- Keyboard focus was checked in-browser on the hero action, selected chord control
+  and footer action. Outlines contrast with their surrounding solid surfaces.
 - Privacy and Terms pages opened successfully; their legal content is unchanged.
 - All product images loaded; local page had no Google Analytics script and no audio/video elements. Palette contrast checked numerically.
 - Reduce Motion CSS reviewed; OS preference was not changed. No hardware screen-reader audit or independent Safari run was performed.

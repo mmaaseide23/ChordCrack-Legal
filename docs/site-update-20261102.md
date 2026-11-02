@@ -40,7 +40,8 @@ The app's Analytics audit confirms receipt of automatic events. Crashlytics and
 Performance are now integrated in the reviewed app source with the existing
 Analytics & Diagnostics preference. A synthetic symbol upload passed; actual
 Performance trace receipt is now console-verified from an isolated synthetic
-fixture; Crashlytics crash/nonfatal receipt remains unverified. This website makes no
+fixture. Crashlytics also received one synthetic nonfatal and resolved its app
+stack frame; fatal-crash and released-binary reporting remain unverified. This website makes no
 monitoring assurances or claims about a released binary.
 The app privacy-policy migration is covered by its own source and tests, not
 by promotional claims here. No legal terms were rewritten.

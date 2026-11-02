@@ -863,3 +863,13 @@ a[href^="mailto:"] {
     height:32px
   }
 }
+
+/* Focus rings contrast with the surrounding surface, including filled controls. */
+.button:focus-visible,
+.skip-link:focus-visible {
+  outline-color: var(--white);
+}
+.button-dark:focus-visible,
+.chord-choices input:focus-visible + span {
+  outline-color: var(--ink);
+}
