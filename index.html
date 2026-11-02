@@ -3,13 +3,11 @@
 <head>
     <!-- Favicon types -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ChordCrack 2.0 - Master Guitar Chords by Ear</title>
+    <title>ChordCrack — Guitar Ear Training</title>
+    <meta name="description" content="Train your ear with five-round daily challenges, focused guitar chord practice and a searchable chord library. Available for iPhone and iPad.">
     
     <script>
         const APP_STORE_LINK = "https://apps.apple.com/us/app/chordcrack/id6752358083";
@@ -19,15 +17,20 @@
     <!-- Smart App Banner for iOS Safari -->
     <meta name="apple-itunes-app" content="app-id=6752358083">
     
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HN6EG2B2XP"></script>
+    <!-- Keep existing site analytics off local and review hosts. -->
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-HN6EG2B2XP');
+      if (['www.chordcrack.com', 'chordcrack.com'].includes(window.location.hostname)) {
+        const analyticsScript = document.createElement('script');
+        analyticsScript.async = true;
+        analyticsScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-HN6EG2B2XP';
+        document.head.appendChild(analyticsScript);
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-HN6EG2B2XP');
+      }
     </script>
-    
+
     <style>
 
         * {
@@ -306,22 +309,20 @@
         
         .faq-answer {
             padding: 0 20px;
-            max-height: 0;
             overflow: hidden;
             transition: max-height 0.3s ease, padding 0.3s ease;
             color: #b8d4de;
         }
         
-        .faq-item.active .faq-answer {
+        .faq-item[open] .faq-answer {
             padding: 0 20px 20px;
-            max-height: 500px;
         }
         
         .faq-arrow {
             transition: transform 0.3s;
         }
         
-        .faq-item.active .faq-arrow {
+        .faq-item[open] .faq-arrow {
             transform: rotate(180deg);
         }
         
@@ -448,31 +449,86 @@
                 gap: 20px;
             }
         }
+
+        /* Small accessibility and preview additions; original navy/green identity retained. */
+        body { overflow-wrap: anywhere; }
+        :focus-visible { outline: 3px solid #f1be65; outline-offset: 5px; }
+        section { scroll-margin-top: calc(6rem + 50px); }
+        nav { flex-wrap: wrap; gap: 12px; }
+        .logo { font-size: clamp(1.2rem, 3.5vw, 1.8rem); }
+        .skip-link { position: fixed; top: -100px; left: 16px; z-index: 1100; background: #4fd1a1; color: #10232d; padding: 12px 18px; }
+        .skip-link:focus { top: 12px; }
+        .nav-links { gap: 22px; }
+        .nav-links a { display: inline-flex; align-items: center; min-height: 44px; }
+        .mobile-menu { position: relative; color: white; }
+        .mobile-menu summary { min-height: 44px; padding: 10px; cursor: pointer; }
+        .mobile-menu ul { position: absolute; right: 0; width: min(240px, 80vw); padding: 12px; background: #1a2f3a; border: 1px solid #4fd1a1; border-radius: 12px; list-style: none; }
+        .mobile-menu a { display: block; color: white; padding: 10px 14px; min-height: 44px; }
+        .faq-question { gap: 16px; list-style: none; }
+        .faq-question:focus-visible { outline-offset: -4px; border-radius: 10px; }
+        .faq-question::-webkit-details-marker { display: none; }
+        .faq-arrow { flex: 0 0 auto; }
+        .faq-answer { overflow: visible; }
+        .contact { background: #2a4754; }
+        .contact-method { max-width: 100%; flex-wrap: wrap; justify-content: center; }
+        .contact-method a, .contact-method span { min-width: 0; max-width: 100%; overflow-wrap: anywhere; }
+        .app-preview { max-width: 1100px; margin: 90px auto; padding: 0 24px; text-align: center; color: #b8d4de; }
+        .app-preview h2 { color: #4fd1a1; font-size: clamp(1.8rem, 4vw, 2.5rem); line-height: 1.2; margin: 0 auto 20px; }
+        .preview-intro { max-width: 650px; margin: 0 auto 14px; font-size: 1.15rem; }
+        .preview-note { max-width: 720px; margin: 0 auto 28px; }
+        .preview-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 36px; margin: 40px auto; }
+        .preview-grid img { display: block; width: 100%; height: auto; border: 1px solid #45626c; border-radius: 24px; background: #10232d; }
+        .preview-grid figcaption { margin-top: 18px; color: #eaf4f5; font-weight: 600; }
+        .feature-grid { grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); }
+        .whats-new-grid { grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); }
+        @media (max-width: 960px) {
+            .nav-links { display: none; }
+            .mobile-menu { display: block; }
+        }
+        @media (max-width: 600px) {
+            .preview-grid { grid-template-columns: 1fr; max-width: 300px; gap: 36px; }
+            .hero { padding-top: 130px; }
+
+            .new-feature, .feature-card { padding: 24px; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+        }
     </style>
 </head>
 <body>
+    <a class="skip-link" href="#home">Skip to content</a>
     <!-- Header -->
     <header>
-        <nav>
+        <nav aria-label="Main navigation">
             <div class="logo">
                 <img src="logo.png" alt="ChordCrack Logo">
                 ChordCrack
             </div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
-                <li><a href="#whats-new">What's New</a></li>
+                <li><a href="#whats-new">Practice</a></li>
                 <li><a href="#features">Features</a></li>
                 <li><a href="#support">Support</a></li>
                 <li><a href="#contact">Contact</a></li>
                 <li><a href="privacy.html">Privacy</a></li>
                 <li><a href="terms.html">Terms</a></li>
             </ul>
+            <details class="mobile-menu"><summary>Menu</summary><ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#whats-new">Practice</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#support">Support</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="privacy.html">Privacy</a></li>
+                <li><a href="terms.html">Terms</a></li>
+            </ul></details>
         </nav>
     </header>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-        <p class="version-badge">Version 2.0 — Major Update</p>
+        <p class="version-badge">Guitar ear training · iPhone &amp; iPad</p>
         <h1>Master Guitar Chords by Ear</h1>
         <p>Train your musical ear through fun, gamified challenges.<br>No guitar required – just your ears and dedication!</p>
         <div class="app-badges">
@@ -484,32 +540,32 @@
 
     <!-- What's New Section -->
     <section id="whats-new" class="whats-new">
-        <h2>What's New in 2.0</h2>
-        <p>ChordCrack 2.0 is a major update packed with new ways to learn, practice, and explore chords.</p>
+        <h2>Find your way to practice</h2>
+        <p>A daily challenge when you have a few minutes. Focused practice when you want to stay a little longer.</p>
         <div class="whats-new-grid">
             <div class="new-feature">
                 <h3>📚 Chord Reference Library</h3>
-                <p>Browse all 52+ chords organized by category — Basic, Barre, Blues, and Power. See finger positions on an interactive guitar neck visualization and play audio in multiple modes: full chord, slow strum, individual strings, bass, and treble.</p>
+                <p>Browse chords by category, look up finger positions and listen to the full chord, a slow strum or individual notes. A reference you can return to between rounds.</p>
             </div>
             <div class="new-feature">
                 <h3>📶 Offline Mode</h3>
-                <p>Download all chord audio for offline play. Tap "Download for Offline" in Settings to cache ~80 audio files in one go. Once downloaded, the app works without an internet connection.</p>
+                <p>Download chord audio in Settings before you go offline. Cached audio supports practice without a connection; sign-in, friends, leaderboards and cloud updates still need internet access.</p>
             </div>
             <div class="new-feature">
-                <h3>🎨 Redesigned Gameplay UI</h3>
-                <p>Game screens have been completely redesigned to be compact and fit on one screen without scrolling. Hint dots, progress bars, audio controls, and chord selection grids are all tighter. Result feedback is now a sleek inline horizontal bar.</p>
+                <h3>🎸 Listen, guess, learn</h3>
+                <p>Listen closely, choose the chord you hear and use hints when you need a hand. Scores and round progress keep you oriented as you practice.</p>
             </div>
             <div class="new-feature">
                 <h3>⏸️ Consistent Pause Menu</h3>
-                <p>All game modes — Daily Challenge, Power Chords, Barre Chords, Blues Chords, and Mixed Practice — now have a pause button with a proper pause menu offering Resume, Restart, and Quit.</p>
+                <p>Pause the Daily Challenge or a practice session to resume, restart or quit when you need a break.</p>
             </div>
             <div class="new-feature">
                 <h3>🧠 Smart Coaching for New Users</h3>
-                <p>Instead of a tutorial you skip, contextual coaching tips appear during your first actual game. Five coaching moments guide you step by step through playing audio, picking chords, using hints, unlocking audio options, and scoring.</p>
+                <p>First-session tips introduce listening, chord choices, hints and scoring as you play. Revisit the tutorial from Settings whenever you need a refresher.</p>
             </div>
             <div class="new-feature">
                 <h3>⚙️ Dedicated Settings Screen</h3>
-                <p>A new settings screen accessible via the gear icon on the home screen. Includes About, Reset Tutorial, Sound Effects toggle, Analytics toggle, Privacy Settings, Export Data, Sign Out, Delete Account, and Offline Mode cache management.</p>
+                <p>Use the home-screen gear to manage sound, Analytics, privacy choices and downloaded audio, or revisit the tutorial.</p>
             </div>
         </div>
     </section>
@@ -526,7 +582,7 @@
             <div class="feature-card">
                 <div class="feature-icon">📈</div>
                 <h3>Progressive Difficulty</h3>
-                <p>Begin with basic major and minor chords, then advance through power chords, barre chords, and complex jazz voicings.</p>
+                <p>Start with major and minor chords, then explore focused power, barre, blues and mixed practice.</p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon">💡</div>
@@ -541,14 +597,27 @@
             <div class="feature-card">
                 <div class="feature-icon">👥</div>
                 <h3>Social Features</h3>
-                <p>Add friends, compare stats, and climb the global leaderboard. Make ear training a social experience!</p>
+                <p>Add friends by username, compare shared stats and choose whether to appear on the leaderboard. Practice is individual; there are no live head-to-head matches.</p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon">☁️</div>
-                <h3>Cloud Sync</h3>
-                <p>Your progress syncs across all devices. Practice on your phone, continue on your tablet seamlessly.</p>
+                <h3>Your practice history</h3>
+                <p>Review saved scores and accuracy over time. Account features use an internet connection; keep practicing with downloaded audio when you are offline.</p>
             </div>
         </div>
+    </section>
+
+    <section id="preview" class="app-preview" aria-labelledby="preview-heading">
+        <p class="version-badge">In development</p>
+        <h2 id="preview-heading">The same ChordCrack, a little smoother.</h2>
+        <p class="preview-intro">A look at the next update: clearer practice controls, useful listening options and the familiar green pick.</p>
+        <p class="preview-note">Actual iOS Simulator screens from our development build, with fictional progress. These changes are not an App Store release announcement.</p>
+        <div class="preview-grid">
+            <figure><img src="images/preview-home.png" width="1124" height="2436" loading="lazy" decoding="async" alt="Development preview: navy and green Home with a five-round Daily Challenge and fictional practice progress."><figcaption>A familiar place to start</figcaption></figure>
+            <figure><img src="images/preview-daily.png" width="1124" height="2436" loading="lazy" decoding="async" alt="Development preview: Daily Challenge with labeled score, streak, round progress and points available."><figcaption>Know where you are in a round</figcaption></figure>
+            <figure><img src="images/preview-chord.png" width="1124" height="2436" loading="lazy" decoding="async" alt="Development preview: A major chord finger diagram with full-chord, slow-strum and individual-note listening controls."><figcaption>Hear the details of a chord</figcaption></figure>
+        </div>
+        <p class="preview-note">We are also trying a separate five-round major/minor exercise with answer feedback and comparison replay. It is a prototype, not a released practice mode.</p>
     </section>
 
     <!-- Support Section -->
@@ -556,125 +625,125 @@
         <div class="support-container">
             <h2>Frequently Asked Questions</h2>
             <div class="faq">
-                <div class="faq-item">
-                    <div class="faq-question">
+                <details class="faq-item">
+                    <summary class="faq-question">
                         <span>How does ChordCrack work?</span>
-                        <span class="faq-arrow">▼</span>
-                    </div>
+                        <span class="faq-arrow" aria-hidden="true">▼</span>
+                    </summary>
                     <div class="faq-answer">
-                        <p>ChordCrack plays guitar chord sounds, and you identify them by ear. The app uses a progression system that starts with basic chords and gradually introduces more complex variations. Each correct answer earns you points and XP, while the hint system ensures you're always learning, never stuck. New in 2.0: smart coaching guides first-time players through the game step by step, and a redesigned compact UI keeps everything on one screen.</p>
+                        <p>Listen to a guitar chord, choose its name and learn from the result. Start with a five-round Daily Challenge or choose a practice mode. Slower playback, individual notes and finger-position hints can help you work it out.</p>
                     </div>
-                </div>
+                </details>
                 
-                <div class="faq-item">
-                    <div class="faq-question">
+                <details class="faq-item">
+                    <summary class="faq-question">
                         <span>Do I need a guitar to use ChordCrack?</span>
-                        <span class="faq-arrow">▼</span>
-                    </div>
+                        <span class="faq-arrow" aria-hidden="true">▼</span>
+                    </summary>
                     <div class="faq-answer">
                         <p>No! ChordCrack is designed for ear training, not guitar playing. All you need is your device and headphones (recommended for the best experience). The app trains your ability to recognize chords by sound alone, which will improve your overall musicianship.</p>
                     </div>
-                </div>
+                </details>
                 
-                <div class="faq-item">
-                    <div class="faq-question">
+                <details class="faq-item">
+                    <summary class="faq-question">
                         <span>What skill level is ChordCrack for?</span>
-                        <span class="faq-arrow">▼</span>
-                    </div>
+                        <span class="faq-arrow" aria-hidden="true">▼</span>
+                    </summary>
                     <div class="faq-answer">
-                        <p>ChordCrack adapts to all skill levels. Beginners start with major and minor chords, intermediate players work on barre and power chords, and advanced users can tackle complex jazz voicings and chord progressions. The app automatically adjusts difficulty based on your performance.</p>
+                        <p>Start with basic major and minor chords if you are new to ear training. Try power, barre, blues or mixed practice when you want to focus on a different sound. Choose the practice that fits what you want to learn.</p>
                     </div>
-                </div>
+                </details>
                 
-                <div class="faq-item">
-                    <div class="faq-question">
+                <details class="faq-item">
+                    <summary class="faq-question">
                         <span>How do the Daily Challenges work?</span>
-                        <span class="faq-arrow">▼</span>
-                    </div>
+                        <span class="faq-arrow" aria-hidden="true">▼</span>
+                    </summary>
                     <div class="faq-answer">
-                        <p>Daily Challenges consist of 5 quick rounds featuring basic chords. Complete them each day to maintain your streak and earn bonus XP. They're designed to take just 2-3 minutes, making it easy to maintain consistent practice even on busy days.</p>
+                        <p>Each Daily Challenge has five rounds of basic chords. Listen, make your guess and use hints as needed. A short session makes it easier to return to ear training regularly.</p>
                     </div>
-                </div>
+                </details>
                 
-                <div class="faq-item">
-                    <div class="faq-question">
+                <details class="faq-item">
+                    <summary class="faq-question">
                         <span>What are Practice Modes?</span>
-                        <span class="faq-arrow">▼</span>
-                    </div>
+                        <span class="faq-arrow" aria-hidden="true">▼</span>
+                    </summary>
                     <div class="faq-answer">
                         <p>Practice Modes let you focus on specific chord types: Power Chords for rock fundamentals, Barre Chords for advanced patterns, Blues Chords for 7ths and extensions, or Mixed Practice for all chord types. Each mode tracks separate statistics so you can identify your strengths and areas for improvement. In 2.0, all practice modes now include a proper pause menu with Resume, Restart, and Quit options.</p>
                     </div>
-                </div>
+                </details>
                 
-                <div class="faq-item">
-                    <div class="faq-question">
+                <details class="faq-item">
+                    <summary class="faq-question">
                         <span>What is the Chord Reference Library?</span>
-                        <span class="faq-arrow">▼</span>
-                    </div>
+                        <span class="faq-arrow" aria-hidden="true">▼</span>
+                    </summary>
                     <div class="faq-answer">
-                        <p>New in 2.0, the Chord Reference Library lets you browse all 52+ chords organized by category (Basic, Barre, Blues, Power). For each chord, you can see finger positions on a guitar neck visualization and play audio in multiple modes — full chord, slow strum, individual strings, bass, and treble. It's a great way to study chords outside of gameplay.</p>
+                        <p>The library lets you browse and search chords by category, inspect their finger positions and listen to different parts of the sound. Use it to study a chord outside a scored session.</p>
                     </div>
-                </div>
+                </details>
 
-                <div class="faq-item">
-                    <div class="faq-question">
+                <details class="faq-item">
+                    <summary class="faq-question">
                         <span>Can I use ChordCrack offline?</span>
-                        <span class="faq-arrow">▼</span>
-                    </div>
+                        <span class="faq-arrow" aria-hidden="true">▼</span>
+                    </summary>
                     <div class="faq-answer">
-                        <p>Yes! In version 2.0, you can download all chord audio for offline play. Go to Settings and tap "Download for Offline" to cache approximately 80 audio files. Once downloaded, the app works without an internet connection. You can manage your cached files from the same settings screen.</p>
+                        <p>Download chord audio from Settings while connected, and check that the download finishes before going offline. Cached audio can be used for practice. Account sign-in, friends, leaderboards and cloud updates require a connection.</p>
                     </div>
-                </div>
+                </details>
 
-                <div class="faq-item">
-                    <div class="faq-question">
+                <details class="faq-item">
+                    <summary class="faq-question">
                         <span>How does the hint system work?</span>
-                        <span class="faq-arrow">▼</span>
-                    </div>
+                        <span class="faq-arrow" aria-hidden="true">▼</span>
+                    </summary>
                     <div class="faq-answer">
                         <p>Our progressive hint system reveals information gradually: first slower playback, then individual string sounds, followed by jumbled finger positions, and finally partial chord diagrams. Each hint costs a small amount of points, encouraging you to try without help first while ensuring you're never completely stuck.</p>
                     </div>
-                </div>
+                </details>
                 
-                <div class="faq-item">
-                    <div class="faq-question">
+                <details class="faq-item">
+                    <summary class="faq-question">
                         <span>Can I play with friends?</span>
-                        <span class="faq-arrow">▼</span>
-                    </div>
+                        <span class="faq-arrow" aria-hidden="true">▼</span>
+                    </summary>
                     <div class="faq-answer">
-                        <p>Yes! Add friends using their username or invite code, compare stats, see their progress on the leaderboard, and motivate each other to improve. You can also see global rankings and compete with players worldwide.</p>
+                        <p>You can add friends by username, accept friend requests and compare stats that friends choose to share. Leaderboard visibility is a separate privacy choice. ChordCrack does not currently offer live multiplayer, shared lobbies or head-to-head games.</p>
                     </div>
-                </div>
+                </details>
                 
-                <div class="faq-item">
-                    <div class="faq-question">
+                <details class="faq-item">
+                    <summary class="faq-question">
                         <span>Is my progress saved?</span>
-                        <span class="faq-arrow">▼</span>
-                    </div>
+                        <span class="faq-arrow" aria-hidden="true">▼</span>
+                    </summary>
                     <div class="faq-answer">
-                        <p>All your progress is automatically saved to the cloud when you're logged in. This means you can switch between devices and your stats, achievements, and progress will sync seamlessly. You can also export your data anytime from the settings menu.</p>
+                        <p>ChordCrack saves practice progress locally and uses your account for online stats. You can review scores and accuracy in the app. An internet connection is needed for online updates; a session is not a live shared game across devices.</p>
                     </div>
-                </div>
+                </details>
                 
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>How do I cancel my subscription?</span>
-                        <span class="faq-arrow">▼</span>
-                    </div>
+                <details class="faq-item">
+                    <summary class="faq-question">
+                        <span>Where can I check the current app version?</span>
+                        <span class="faq-arrow" aria-hidden="true">▼</span>
+                    </summary>
                     <div class="faq-answer">
-                        <p>Subscriptions can be managed through your device's settings. On iOS, go to Settings > Your Name > Subscriptions. Select ChordCrack and choose to cancel. You'll retain access until the end of your billing period.</p>
+                        <p>The App Store listing shows the currently available version and release notes. Screens in the development preview are from a newer local build, so they may differ from the version you download.</p>
                     </div>
-                </div>
+                </details>
                 
-                <div class="faq-item">
-                    <div class="faq-question">
+                <details class="faq-item">
+                    <summary class="faq-question">
                         <span>What if I need help or find a bug?</span>
-                        <span class="faq-arrow">▼</span>
-                    </div>
+                        <span class="faq-arrow" aria-hidden="true">▼</span>
+                    </summary>
                     <div class="faq-answer">
-                        <p>We're here to help! Email us at support@chordcrack.com with any questions, feedback, or bug reports. Include your device type and app version for technical issues. We typically respond within 24-48 hours and genuinely appreciate all feedback to improve ChordCrack.</p>
+                        <p>We're here to help! Email us at support@chordcrack.com with any questions, feedback, or bug reports. Include your device type and app version for technical issues. Your feedback helps us improve the next update.</p>
                     </div>
-                </div>
+                </details>
             </div>
         </div>
     </section>
@@ -690,7 +759,7 @@
             </div>
             <div class="contact-method">
                 <span>⏰</span>
-                <span>Response within 24-48 hours</span>
+                <span>Feedback and bug reports welcome</span>
             </div>
         </div>
     </section>
@@ -713,36 +782,10 @@
     </footer>
 
     <script>
-        // FAQ Accordion
-        document.querySelectorAll('.faq-question').forEach(question => {
-            question.addEventListener('click', () => {
-                const item = question.parentElement;
-                item.classList.toggle('active');
-                
-                // Close other items
-                document.querySelectorAll('.faq-item').forEach(otherItem => {
-                    if (otherItem !== item && otherItem.classList.contains('active')) {
-                        otherItem.classList.remove('active');
-                    }
-                });
-            });
-        });
-
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    const headerHeight = document.querySelector('header').offsetHeight;
-                    const targetPosition = target.offsetTop - headerHeight;
-                    window.scrollTo({
-                        top: targetPosition,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
+      // Close the small-screen menu after a choice; native links/disclosures still work without JS.
+      document.querySelectorAll('.mobile-menu a').forEach(link => {
+        link.addEventListener('click', () => link.closest('details').removeAttribute('open'));
+      });
     </script>
 </body>
 </html>
