@@ -1,4 +1,7 @@
-# Website update
+# Initial website update
+
+This records the initial factual update. The subsequent full redesign and its
+validation are documented in `website-revamp-20261102.md`.
 
 This change preserves the existing ChordCrack site, logo, navy/green palette,
 App Store destination and legal documents. GitHub Pages publishes `main` at
@@ -36,7 +39,8 @@ Screenshot provenance (unmodified, fictional iPhone 13 mini Simulator captures):
 The app's Analytics audit confirms receipt of automatic events. Crashlytics and
 Performance are now integrated in the reviewed app source with the existing
 Analytics & Diagnostics preference. A synthetic symbol upload passed; actual
-diagnostic/trace receipt is not yet console-verified. This website makes no
+Performance trace receipt is now console-verified from an isolated synthetic
+fixture; Crashlytics crash/nonfatal receipt remains unverified. This website makes no
 monitoring assurances or claims about a released binary.
 The app privacy-policy migration is covered by its own source and tests, not
 by promotional claims here. No legal terms were rewritten.
