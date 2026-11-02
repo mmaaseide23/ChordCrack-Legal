@@ -33,7 +33,10 @@ Screenshot provenance (unmodified, fictional iPhone 13 mini Simulator captures):
 | preview-daily.png | fb3d9351ae300757ebd1ab3e4c400b55c173c0e3ca6bb222d0261ebfbb176107 |
 | preview-chord.png | 2c86ce83b3faa88d3eb968d8c47e302951f635e7038cfa897501ceb83c4b3c10 |
 
-The app's Analytics audit confirms receipt of automatic events; Crashlytics and
-Performance are not integrated. This website makes no monitoring assurances.
+The app's Analytics audit confirms receipt of automatic events. Crashlytics and
+Performance are now integrated in the reviewed app source with the existing
+Analytics & Diagnostics preference. A synthetic symbol upload passed; actual
+diagnostic/trace receipt is not yet console-verified. This website makes no
+monitoring assurances or claims about a released binary.
 The app privacy-policy migration is covered by its own source and tests, not
 by promotional claims here. No legal terms were rewritten.
