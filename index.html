@@ -1,22 +1,15 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <!-- Favicon types -->
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ChordCrack — Guitar Ear Training</title>
-    <meta name="description" content="Train your ear with five-round daily challenges, focused guitar chord practice and a searchable chord library. Available for iPhone and iPad.">
-    
-    <script>
-        const APP_STORE_LINK = "https://apps.apple.com/us/app/chordcrack/id6752358083";
-        const APP_STORE_ID = "6752358083"; 
-    </script>
-    
-    <!-- Smart App Banner for iOS Safari -->
-    <meta name="apple-itunes-app" content="app-id=6752358083">
-    
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ChordCrack — Know that chord.</title>
+  <meta name="description" content="Guitar ear training for iPhone and iPad. Listen, guess and learn with five-round daily challenges, focused practice and a chord reference library.">
+  <meta name="apple-itunes-app" content="app-id=6752358083">
+  <meta name="theme-color" content="#10232d">
+  <link rel="icon" href="favicon.ico">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preload" href="fonts/BricolageGrotesque.ttf" as="font" type="font/ttf" crossorigin>
     <!-- Keep existing site analytics off local and review hosts. -->
     <script>
       if (['www.chordcrack.com', 'chordcrack.com'].includes(window.location.hostname)) {
@@ -31,761 +24,93 @@
       }
     </script>
 
-    <style>
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: #1a2f3a;
-        }
-        
-        /* Header & Navigation */
-        header {
-            background: linear-gradient(135deg, #1a2f3a 0%, #2a4754 100%);
-            color: white;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
-        }
-        
-        nav {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            font-size: 1.8rem;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .logo img {
-            height: 32px;
-            width: auto;
-        }
-        
-        .nav-links {
-            display: flex;
-            gap: 30px;
-            list-style: none;
-        }
-        
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            transition: opacity 0.3s;
-        }
-        
-        .nav-links a:hover {
-            opacity: 0.8;
-        }
-        
-        /* Mobile Menu */
-        .mobile-menu {
-            display: none;
-            cursor: pointer;
-        }
-        
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, #1a2f3a 0%, #2a4754 100%);
-            color: white;
-            padding: 150px 20px 80px;
-            text-align: center;
-        }
-        
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            animation: fadeInUp 0.8s ease;
-        }
-        
-        .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 40px;
-            opacity: 0.95;
-            animation: fadeInUp 0.8s ease 0.2s both;
-        }
-        
-        .app-badges {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            flex-wrap: wrap;
-            animation: fadeInUp 0.8s ease 0.4s both;
-        }
-        
-        .app-badge {
-            display: inline-block;
-            transition: transform 0.3s;
-        }
-        
-        .app-badge:hover {
-            transform: scale(1.05);
-        }
-        
-        .app-badge img {
-            height: 60px;
-        }
-        
-        .version-badge {
-            display: inline-block;
-            background: rgba(79, 209, 161, 0.2);
-            border: 1px solid #4fd1a1;
-            color: #4fd1a1;
-            padding: 6px 18px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-            margin-bottom: 20px;
-            opacity: 1;
-            animation: fadeInUp 0.8s ease;
-        }
-
-        /* What's New Section */
-        .whats-new {
-            max-width: 1200px;
-            margin: 80px auto;
-            padding: 0 20px;
-        }
-
-        .whats-new h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            color: #4fd1a1;
-            margin-bottom: 20px;
-        }
-
-        .whats-new > p {
-            text-align: center;
-            color: #b8d4de;
-            font-size: 1.1rem;
-            margin-bottom: 50px;
-        }
-
-        .whats-new-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-            gap: 30px;
-        }
-
-        .new-feature {
-            background: rgba(42, 71, 84, 0.6);
-            padding: 28px;
-            border-radius: 15px;
-            border: 1px solid rgba(79, 209, 161, 0.2);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .new-feature:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(79, 209, 161, 0.2);
-            border-color: rgba(79, 209, 161, 0.4);
-        }
-
-        .new-feature h3 {
-            color: #4fd1a1;
-            margin-bottom: 10px;
-            font-size: 1.15rem;
-        }
-
-        .new-feature p {
-            color: #b8d4de;
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-
-        /* Features Section */
-        .features {
-            max-width: 1200px;
-            margin: 80px auto;
-            padding: 0 20px;
-        }
-        
-        .features h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            color: #4fd1a1;
-            margin-bottom: 60px;
-        }
-        
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-        }
-        
-        .feature-card {
-            background: rgba(42, 71, 84, 0.6);
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
-            transition: transform 0.3s, box-shadow 0.3s;
-            border: 1px solid rgba(79, 209, 161, 0.2);
-        }
-        
-        .feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(79, 209, 161, 0.2);
-            border-color: rgba(79, 209, 161, 0.4);
-        }
-        
-        .feature-icon {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-            color: #4fd1a1;
-        }
-        
-        .feature-card h3 {
-            color: #4fd1a1;
-            margin-bottom: 10px;
-        }
-        
-        .feature-card p {
-            color: #b8d4de;
-        }
-        
-        /* Support Section */
-        .support {
-            background: rgba(26, 47, 58, 0.95);
-            padding: 80px 20px;
-        }
-        
-        .support-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        .support h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            color: #4fd1a1;
-            margin-bottom: 60px;
-        }
-        
-        .faq {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .faq-item {
-            background: rgba(42, 71, 84, 0.6);
-            margin-bottom: 20px;
-            border-radius: 10px;
-            overflow: hidden;
-            border: 1px solid rgba(79, 209, 161, 0.2);
-        }
-        
-        .faq-question {
-            padding: 20px;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-weight: 600;
-            color: #4fd1a1;
-            transition: background 0.3s;
-        }
-        
-        .faq-question:hover {
-            background: rgba(79, 209, 161, 0.1);
-        }
-        
-        .faq-answer {
-            padding: 0 20px;
-            overflow: hidden;
-            transition: max-height 0.3s ease, padding 0.3s ease;
-            color: #b8d4de;
-        }
-        
-        .faq-item[open] .faq-answer {
-            padding: 0 20px 20px;
-        }
-        
-        .faq-arrow {
-            transition: transform 0.3s;
-        }
-        
-        .faq-item[open] .faq-arrow {
-            transform: rotate(180deg);
-        }
-        
-        /* Contact Section */
-        .contact {
-            background: linear-gradient(135deg, #2a4754 0%, #4fd1a1 100%);
-            color: white;
-            padding: 60px 20px;
-            text-align: center;
-        }
-        
-        .contact h2 {
-            font-size: 2rem;
-            margin-bottom: 20px;
-        }
-        
-        .contact-methods {
-            display: flex;
-            gap: 40px;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-top: 30px;
-        }
-        
-        .contact-method {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 1.1rem;
-        }
-        
-        .contact-method a {
-            color: white;
-            text-decoration: none;
-        }
-        
-        .contact-method a:hover {
-            text-decoration: underline;
-        }
-        
-        /* Legal Links */
-        .legal {
-            background: rgba(26, 47, 58, 0.95);
-            padding: 40px 20px;
-        }
-        
-        .legal-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            text-align: center;
-        }
-        
-        .legal-links {
-            display: flex;
-            gap: 30px;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-bottom: 20px;
-        }
-        
-        .legal-links a {
-            color: #4fd1a1;
-            text-decoration: none;
-            font-weight: 500;
-        }
-        
-        .legal-links a:hover {
-            text-decoration: underline;
-        }
-        
-        .legal p {
-            color: #b8d4de;
-        }
-        
-        /* Footer */
-        footer {
-            background: #1a2f3a;
-            color: white;
-            text-align: center;
-            padding: 30px 20px;
-        }
-        
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        /* Responsive */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-            
-            .mobile-menu {
-                display: block;
-            }
-            
-            .hero h1 {
-                font-size: 2rem;
-            }
-            
-            .hero p {
-                font-size: 1.1rem;
-            }
-            
-            .features h2, .support h2, .whats-new h2 {
-                font-size: 2rem;
-            }
-
-            .whats-new-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .contact-methods {
-                flex-direction: column;
-                align-items: center;
-                gap: 20px;
-            }
-        }
-
-        /* Small accessibility and preview additions; original navy/green identity retained. */
-        body { overflow-wrap: anywhere; }
-        :focus-visible { outline: 3px solid #f1be65; outline-offset: 5px; }
-        section { scroll-margin-top: calc(6rem + 50px); }
-        nav { flex-wrap: wrap; gap: 12px; }
-        .logo { font-size: clamp(1.2rem, 3.5vw, 1.8rem); }
-        .skip-link { position: fixed; top: -100px; left: 16px; z-index: 1100; background: #4fd1a1; color: #10232d; padding: 12px 18px; }
-        .skip-link:focus { top: 12px; }
-        .nav-links { gap: 22px; }
-        .nav-links a { display: inline-flex; align-items: center; min-height: 44px; }
-        .mobile-menu { position: relative; color: white; }
-        .mobile-menu summary { min-height: 44px; padding: 10px; cursor: pointer; }
-        .mobile-menu ul { position: absolute; right: 0; width: min(240px, 80vw); padding: 12px; background: #1a2f3a; border: 1px solid #4fd1a1; border-radius: 12px; list-style: none; }
-        .mobile-menu a { display: block; color: white; padding: 10px 14px; min-height: 44px; }
-        .faq-question { gap: 16px; list-style: none; }
-        .faq-question:focus-visible { outline-offset: -4px; border-radius: 10px; }
-        .faq-question::-webkit-details-marker { display: none; }
-        .faq-arrow { flex: 0 0 auto; }
-        .faq-answer { overflow: visible; }
-        .contact { background: #2a4754; }
-        .contact-method { max-width: 100%; flex-wrap: wrap; justify-content: center; }
-        .contact-method a, .contact-method span { min-width: 0; max-width: 100%; overflow-wrap: anywhere; }
-        .app-preview { max-width: 1100px; margin: 90px auto; padding: 0 24px; text-align: center; color: #b8d4de; }
-        .app-preview h2 { color: #4fd1a1; font-size: clamp(1.8rem, 4vw, 2.5rem); line-height: 1.2; margin: 0 auto 20px; }
-        .preview-intro { max-width: 650px; margin: 0 auto 14px; font-size: 1.15rem; }
-        .preview-note { max-width: 720px; margin: 0 auto 28px; }
-        .preview-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 36px; margin: 40px auto; }
-        .preview-grid img { display: block; width: 100%; height: auto; border: 1px solid #45626c; border-radius: 24px; background: #10232d; }
-        .preview-grid figcaption { margin-top: 18px; color: #eaf4f5; font-weight: 600; }
-        .feature-grid { grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); }
-        .whats-new-grid { grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); }
-        @media (max-width: 960px) {
-            .nav-links { display: none; }
-            .mobile-menu { display: block; }
-        }
-        @media (max-width: 600px) {
-            .preview-grid { grid-template-columns: 1fr; max-width: 300px; gap: 36px; }
-            .hero { padding-top: 130px; }
-
-            .new-feature, .feature-card { padding: 24px; }
-        }
-        @media (prefers-reduced-motion: reduce) {
-            *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
-        }
-    </style>
+  <script src="site.js" defer></script>
 </head>
 <body>
-    <a class="skip-link" href="#home">Skip to content</a>
-    <!-- Header -->
-    <header>
-        <nav aria-label="Main navigation">
-            <div class="logo">
-                <img src="logo.png" alt="ChordCrack Logo">
-                ChordCrack
-            </div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#whats-new">Practice</a></li>
-                <li><a href="#features">Features</a></li>
-                <li><a href="#support">Support</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li><a href="privacy.html">Privacy</a></li>
-                <li><a href="terms.html">Terms</a></li>
-            </ul>
-            <details class="mobile-menu"><summary>Menu</summary><ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#whats-new">Practice</a></li>
-                <li><a href="#features">Features</a></li>
-                <li><a href="#support">Support</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li><a href="privacy.html">Privacy</a></li>
-                <li><a href="terms.html">Terms</a></li>
-            </ul></details>
-        </nav>
-    </header>
-
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <p class="version-badge">Guitar ear training · iPhone &amp; iPad</p>
-        <h1>Master Guitar Chords by Ear</h1>
-        <p>Train your musical ear through fun, gamified challenges.<br>No guitar required – just your ears and dedication!</p>
-        <div class="app-badges">
-            <a href="https://apps.apple.com/us/app/chordcrack/id6752358083" class="app-badge" target="_blank" rel="noopener">
-                <img src="https://developer.apple.com/app-store/marketing/guidelines/images/badge-download-on-the-app-store.svg" alt="Download on the App Store">
-            </a>
-        </div>
+  <a class="skip-link" href="#home">Skip to content</a>
+  <header class="site-header wrap">
+    <a class="brand" href="#home" aria-label="ChordCrack home"><img src="logo.png" width="48" height="48" alt=""><span>ChordCrack</span></a>
+    <nav class="desktop-nav" aria-label="Main navigation"><a href="#practice">Practice</a><a href="#library">Chord library</a><a href="#support">Questions</a></nav>
+    <a class="header-download" href="https://apps.apple.com/us/app/chordcrack/id6752358083">Get the app <span aria-hidden="true">↗</span></a>
+    <details class="mobile-menu"><summary>Menu</summary><nav aria-label="Mobile navigation"><a href="#practice">Practice</a><a href="#library">Chord library</a><a href="#support">Questions</a><a href="https://apps.apple.com/us/app/chordcrack/id6752358083">Get the app</a></nav></details>
+  </header>
+  <main id="home" tabindex="-1">
+    <section class="hero wrap" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <h1 id="hero-title">Know that<br>chord.</h1>
+        <p>Guitar ear training that starts with a listen.<br class="wide-only"> Guess the chord. Get a little better at hearing it.</p>
+        <a class="button" href="https://apps.apple.com/us/app/chordcrack/id6752358083">Get ChordCrack <span aria-hidden="true">↗</span></a>
+        <p class="availability">On the App Store for iPhone &amp; iPad</p>
+      </div>
+      <figure class="hero-product">
+        <div class="phone"><img src="images/preview-home.png" width="1124" height="2436" fetchpriority="high" alt="ChordCrack development Home: five-round Daily Challenge and fictional practice progress."></div>
+        <figcaption>From the next update · Development preview</figcaption>
+      </figure>
     </section>
 
-    <!-- What's New Section -->
-    <section id="whats-new" class="whats-new">
-        <h2>Find your way to practice</h2>
-        <p>A daily challenge when you have a few minutes. Focused practice when you want to stay a little longer.</p>
-        <div class="whats-new-grid">
-            <div class="new-feature">
-                <h3>📚 Chord Reference Library</h3>
-                <p>Browse chords by category, look up finger positions and listen to the full chord, a slow strum or individual notes. A reference you can return to between rounds.</p>
-            </div>
-            <div class="new-feature">
-                <h3>📶 Offline Mode</h3>
-                <p>Download chord audio in Settings before you go offline. Cached audio supports practice without a connection; sign-in, friends, leaderboards and cloud updates still need internet access.</p>
-            </div>
-            <div class="new-feature">
-                <h3>🎸 Listen, guess, learn</h3>
-                <p>Listen closely, choose the chord you hear and use hints when you need a hand. Scores and round progress keep you oriented as you practice.</p>
-            </div>
-            <div class="new-feature">
-                <h3>⏸️ Consistent Pause Menu</h3>
-                <p>Pause the Daily Challenge or a practice session to resume, restart or quit when you need a break.</p>
-            </div>
-            <div class="new-feature">
-                <h3>🧠 Smart Coaching for New Users</h3>
-                <p>First-session tips introduce listening, chord choices, hints and scoring as you play. Revisit the tutorial from Settings whenever you need a refresher.</p>
-            </div>
-            <div class="new-feature">
-                <h3>⚙️ Dedicated Settings Screen</h3>
-                <p>Use the home-screen gear to manage sound, Analytics, privacy choices and downloaded audio, or revisit the tutorial.</p>
-            </div>
+    <section class="chord-section" id="explore" aria-labelledby="explore-title">
+      <div class="wrap chord-layout">
+        <div class="chord-copy">
+          <h2 id="explore-title">One note.<br>A new feeling.</h2>
+          <p>Major and minor chords can be just one note apart. Spot the difference here, then train your ears in the app.</p>
+          <fieldset class="chord-choices"><legend>Explore a chord shape</legend>
+            <label><input type="radio" name="chord" value="A" checked><span>A</span></label>
+            <label><input type="radio" name="chord" value="Am"><span>Am</span></label>
+            <label><input type="radio" name="chord" value="E"><span>E</span></label>
+            <label><input type="radio" name="chord" value="Em"><span>Em</span></label>
+          </fieldset>
+          <p class="explorer-note">A visual guide. Sound stays in the app.</p>
+          <noscript><p>The A major shape is shown. Enable JavaScript to compare the other shapes.</p></noscript>
         </div>
+        <div class="chord-visual" data-ui>
+          <div class="diagram-top"><h3 id="chord-name">A major</h3><span id="chord-symbol" aria-hidden="true">A</span></div>
+          <svg class="chord-diagram" viewBox="0 0 360 290" role="img" aria-labelledby="diagram-title diagram-desc">
+            <title id="diagram-title">A major chord diagram</title><desc id="diagram-desc">From low E to high E: mute, open, fret 2, fret 2, fret 2, open.</desc>
+            <g class="frets"><path d="M55 65H305 M55 110H305 M55 155H305 M55 200H305 M55 245H305"/><path class="nut" d="M55 65H305"/></g>
+            <g class="strings"><path d="M55 65V245 M105 65V245 M155 65V245 M205 65V245 M255 65V245 M305 65V245"/></g>
+            <g class="open-notes" aria-hidden="true"><text x="55" y="40" id="string-0">×</text><text x="105" y="40" id="string-1">○</text><text x="155" y="40" id="string-2"></text><text x="205" y="40" id="string-3"></text><text x="255" y="40" id="string-4"></text><text x="305" y="40" id="string-5">○</text></g>
+            <g class="finger-dots"><circle id="dot-0" cx="55" cy="87.5" r="14" opacity="0"/><circle id="dot-1" cx="105" cy="87.5" r="14" opacity="0"/><circle id="dot-2" cx="155" cy="132.5" r="14"/><circle id="dot-3" cx="205" cy="132.5" r="14"/><circle id="dot-4" cx="255" cy="132.5" r="14"/><circle id="dot-5" cx="305" cy="87.5" r="14" opacity="0"/></g>
+            <g class="string-labels" aria-hidden="true"><text x="55" y="278">E</text><text x="105" y="278">A</text><text x="155" y="278">D</text><text x="205" y="278">G</text><text x="255" y="278">B</text><text x="305" y="278">e</text></g>
+          </svg>
+          <p id="chord-description" class="chord-description" aria-live="polite" aria-atomic="true">A major uses C♯. Move that note down one fret to C and you have A minor.</p>
+        </div>
+      </div>
     </section>
 
-    <!-- Features Section -->
-    <section id="features" class="features">
-        <h2>Why ChordCrack?</h2>
-        <div class="feature-grid">
-            <div class="feature-card">
-                <div class="feature-icon">🎯</div>
-                <h3>Daily Challenges</h3>
-                <p>Start each day with 5 quick rounds to build consistency and maintain your streak. Perfect for busy schedules!</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">📈</div>
-                <h3>Progressive Difficulty</h3>
-                <p>Start with major and minor chords, then explore focused power, barre, blues and mixed practice.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">💡</div>
-                <h3>Smart Hint System</h3>
-                <p>Never get stuck! Get progressive hints from slower playback to individual string sounds and finger position reveals.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">🏆</div>
-                <h3>Achievements & Stats</h3>
-                <p>Track your accuracy, unlock achievements, and monitor your progress with detailed performance metrics.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">👥</div>
-                <h3>Social Features</h3>
-                <p>Add friends by username, compare shared stats and choose whether to appear on the leaderboard. Practice is individual; there are no live head-to-head matches.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">☁️</div>
-                <h3>Your practice history</h3>
-                <p>Review saved scores and accuracy over time. Account features use an internet connection; keep practicing with downloaded audio when you are offline.</p>
-            </div>
+    <section class="practice-section wrap" id="practice" aria-labelledby="practice-title">
+      <div class="practice-intro"><h2 id="practice-title">Find your<br>daily rhythm.</h2><p>Five rounds is a place to start. Stay for focused practice when you have more time.</p></div>
+      <div class="practice-layout">
+        <figure class="practice-product"><div class="phone"><img src="images/preview-daily.png" width="1124" height="2436" loading="lazy" decoding="async" alt="Daily Challenge development screen with a Listen control, answer choices, score and round progress."></div><figcaption>Daily Challenge · Development preview</figcaption></figure>
+        <div class="practice-details">
+          <ol class="practice-steps"><li><h3>Listen closely.</h3><p>Start with the sound of a guitar chord. No guitar in your hands required.</p></li><li><h3>Take your best guess.</h3><p>Choose the chord you hear. Slower playback and individual notes can help when you need a hint.</p></li><li><h3>Learn the difference.</h3><p>Follow your scores and accuracy, or focus on major, minor, power, barre and blues chords.</p></li></ol>
+          <a class="text-link" href="https://apps.apple.com/us/app/chordcrack/id6752358083">Start practicing in ChordCrack <span aria-hidden="true">↗</span></a>
         </div>
+      </div>
     </section>
 
-    <section id="preview" class="app-preview" aria-labelledby="preview-heading">
-        <p class="version-badge">In development</p>
-        <h2 id="preview-heading">The same ChordCrack, a little smoother.</h2>
-        <p class="preview-intro">A look at the next update: clearer practice controls, useful listening options and the familiar green pick.</p>
-        <p class="preview-note">Actual iOS Simulator screens from our development build, with fictional progress. These changes are not an App Store release announcement.</p>
-        <div class="preview-grid">
-            <figure><img src="images/preview-home.png" width="1124" height="2436" loading="lazy" decoding="async" alt="Development preview: navy and green Home with a five-round Daily Challenge and fictional practice progress."><figcaption>A familiar place to start</figcaption></figure>
-            <figure><img src="images/preview-daily.png" width="1124" height="2436" loading="lazy" decoding="async" alt="Development preview: Daily Challenge with labeled score, streak, round progress and points available."><figcaption>Know where you are in a round</figcaption></figure>
-            <figure><img src="images/preview-chord.png" width="1124" height="2436" loading="lazy" decoding="async" alt="Development preview: A major chord finger diagram with full-chord, slow-strum and individual-note listening controls."><figcaption>Hear the details of a chord</figcaption></figure>
-        </div>
-        <p class="preview-note">We are also trying a separate five-round major/minor exercise with answer feedback and comparison replay. It is a prototype, not a released practice mode.</p>
+    <section class="library-section" id="library" aria-labelledby="library-title">
+      <div class="wrap library-layout">
+        <div class="library-copy"><h2 id="library-title">Get to know<br>every note.</h2><p>Go from a familiar sound to a familiar shape. The chord library gives you a place to slow down, look closer and listen again.</p><ul class="library-list"><li>Search and browse by chord category</li><li>See where your fingers go</li><li>Hear a full chord, slow strum or individual notes</li></ul><p class="offline-note">Taking practice offline? Download chord audio in Settings before you go. Online account features still need a connection.</p></div>
+        <figure class="library-product"><div class="phone"><img src="images/preview-chord.png" width="1124" height="2436" loading="lazy" decoding="async" alt="Development chord library showing the A major finger positions and reference listening controls."></div><figcaption>Chord library · Development preview</figcaption></figure>
+      </div>
     </section>
 
-    <!-- Support Section -->
-    <section id="support" class="support">
-        <div class="support-container">
-            <h2>Frequently Asked Questions</h2>
-            <div class="faq">
-                <details class="faq-item">
-                    <summary class="faq-question">
-                        <span>How does ChordCrack work?</span>
-                        <span class="faq-arrow" aria-hidden="true">▼</span>
-                    </summary>
-                    <div class="faq-answer">
-                        <p>Listen to a guitar chord, choose its name and learn from the result. Start with a five-round Daily Challenge or choose a practice mode. Slower playback, individual notes and finger-position hints can help you work it out.</p>
-                    </div>
-                </details>
-                
-                <details class="faq-item">
-                    <summary class="faq-question">
-                        <span>Do I need a guitar to use ChordCrack?</span>
-                        <span class="faq-arrow" aria-hidden="true">▼</span>
-                    </summary>
-                    <div class="faq-answer">
-                        <p>No! ChordCrack is designed for ear training, not guitar playing. All you need is your device and headphones (recommended for the best experience). The app trains your ability to recognize chords by sound alone, which will improve your overall musicianship.</p>
-                    </div>
-                </details>
-                
-                <details class="faq-item">
-                    <summary class="faq-question">
-                        <span>What skill level is ChordCrack for?</span>
-                        <span class="faq-arrow" aria-hidden="true">▼</span>
-                    </summary>
-                    <div class="faq-answer">
-                        <p>Start with basic major and minor chords if you are new to ear training. Try power, barre, blues or mixed practice when you want to focus on a different sound. Choose the practice that fits what you want to learn.</p>
-                    </div>
-                </details>
-                
-                <details class="faq-item">
-                    <summary class="faq-question">
-                        <span>How do the Daily Challenges work?</span>
-                        <span class="faq-arrow" aria-hidden="true">▼</span>
-                    </summary>
-                    <div class="faq-answer">
-                        <p>Each Daily Challenge has five rounds of basic chords. Listen, make your guess and use hints as needed. A short session makes it easier to return to ear training regularly.</p>
-                    </div>
-                </details>
-                
-                <details class="faq-item">
-                    <summary class="faq-question">
-                        <span>What are Practice Modes?</span>
-                        <span class="faq-arrow" aria-hidden="true">▼</span>
-                    </summary>
-                    <div class="faq-answer">
-                        <p>Practice Modes let you focus on specific chord types: Power Chords for rock fundamentals, Barre Chords for advanced patterns, Blues Chords for 7ths and extensions, or Mixed Practice for all chord types. Each mode tracks separate statistics so you can identify your strengths and areas for improvement. In 2.0, all practice modes now include a proper pause menu with Resume, Restart, and Quit options.</p>
-                    </div>
-                </details>
-                
-                <details class="faq-item">
-                    <summary class="faq-question">
-                        <span>What is the Chord Reference Library?</span>
-                        <span class="faq-arrow" aria-hidden="true">▼</span>
-                    </summary>
-                    <div class="faq-answer">
-                        <p>The library lets you browse and search chords by category, inspect their finger positions and listen to different parts of the sound. Use it to study a chord outside a scored session.</p>
-                    </div>
-                </details>
+    <section class="preview-note-section wrap" aria-labelledby="preview-title"><h2 id="preview-title">A look at what’s next.</h2><p>The screens on this page are actual iOS development previews with fictional progress. They show work toward the next update, not a new App Store release. We’re also trying a separate five-round major/minor prototype with comparison replay. Check the App Store for the version available today.</p></section>
 
-                <details class="faq-item">
-                    <summary class="faq-question">
-                        <span>Can I use ChordCrack offline?</span>
-                        <span class="faq-arrow" aria-hidden="true">▼</span>
-                    </summary>
-                    <div class="faq-answer">
-                        <p>Download chord audio from Settings while connected, and check that the download finishes before going offline. Cached audio can be used for practice. Account sign-in, friends, leaderboards and cloud updates require a connection.</p>
-                    </div>
-                </details>
-
-                <details class="faq-item">
-                    <summary class="faq-question">
-                        <span>How does the hint system work?</span>
-                        <span class="faq-arrow" aria-hidden="true">▼</span>
-                    </summary>
-                    <div class="faq-answer">
-                        <p>Our progressive hint system reveals information gradually: first slower playback, then individual string sounds, followed by jumbled finger positions, and finally partial chord diagrams. Each hint costs a small amount of points, encouraging you to try without help first while ensuring you're never completely stuck.</p>
-                    </div>
-                </details>
-                
-                <details class="faq-item">
-                    <summary class="faq-question">
-                        <span>Can I play with friends?</span>
-                        <span class="faq-arrow" aria-hidden="true">▼</span>
-                    </summary>
-                    <div class="faq-answer">
-                        <p>You can add friends by username, accept friend requests and compare stats that friends choose to share. Leaderboard visibility is a separate privacy choice. ChordCrack does not currently offer live multiplayer, shared lobbies or head-to-head games.</p>
-                    </div>
-                </details>
-                
-                <details class="faq-item">
-                    <summary class="faq-question">
-                        <span>Is my progress saved?</span>
-                        <span class="faq-arrow" aria-hidden="true">▼</span>
-                    </summary>
-                    <div class="faq-answer">
-                        <p>ChordCrack saves practice progress locally and uses your account for online stats. You can review scores and accuracy in the app. An internet connection is needed for online updates; a session is not a live shared game across devices.</p>
-                    </div>
-                </details>
-                
-                <details class="faq-item">
-                    <summary class="faq-question">
-                        <span>Where can I check the current app version?</span>
-                        <span class="faq-arrow" aria-hidden="true">▼</span>
-                    </summary>
-                    <div class="faq-answer">
-                        <p>The App Store listing shows the currently available version and release notes. Screens in the development preview are from a newer local build, so they may differ from the version you download.</p>
-                    </div>
-                </details>
-                
-                <details class="faq-item">
-                    <summary class="faq-question">
-                        <span>What if I need help or find a bug?</span>
-                        <span class="faq-arrow" aria-hidden="true">▼</span>
-                    </summary>
-                    <div class="faq-answer">
-                        <p>We're here to help! Email us at support@chordcrack.com with any questions, feedback, or bug reports. Include your device type and app version for technical issues. Your feedback helps us improve the next update.</p>
-                    </div>
-                </details>
-            </div>
-        </div>
+    <section class="support-section wrap" id="support" aria-labelledby="support-title">
+      <div class="support-heading"><h2 id="support-title">Before you<br>press play.</h2><p>Have another question?<br><a href="mailto:support@chordcrack.com">support@chordcrack.com</a></p></div>
+      <div class="faq">
+        <details><summary>Do I need a guitar?</summary><p>No. ChordCrack trains chord recognition by sound. Your iPhone or iPad is all you need; headphones can help you hear the details.</p></details>
+        <details><summary>Where should I start?</summary><p>Try a five-round Daily Challenge with basic chords. Choose focused practice when you want more time with major, minor, power, barre or blues chords. First-session tips explain listening, hints and scoring, and you can revisit the tutorial in Settings.</p></details>
+        <details><summary>How do hints work?</summary><p>Hints reveal more of the chord through slower playback, individual string sounds and finger positions. Hints cost points, and you can use them when you need a hand. Pause, resume, restart or quit a session from the pause menu.</p></details>
+        <details><summary>Can I practice offline?</summary><p>Download chord audio in Settings while connected and let the download finish before going offline. Cached audio supports practice. Sign-in, friends, leaderboards and cloud updates require internet access.</p></details>
+        <details><summary>Can I play with friends?</summary><p>Add friends by username and compare stats they choose to share. Leaderboard visibility is a separate privacy choice. Practice is individual: there are no live head-to-head matches or shared lobbies.</p></details>
+        <details><summary>Is my progress saved?</summary><p>Practice progress is saved locally, and account features support online stats. Review your scores and accuracy in the app. Online updates require a connection.</p></details>
+        <details><summary>How do I report a problem?</summary><p>Email <a href="mailto:support@chordcrack.com">support@chordcrack.com</a> with your device type, app version and what happened. Settings includes sound, downloaded audio and privacy controls. See our <a href="privacy.html">Privacy Policy</a> for details.</p></details>
+      </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <h2>Get in Touch</h2>
-        <p>Have questions, feedback, or need assistance? We're here to help!</p>
-        <div class="contact-methods">
-            <div class="contact-method">
-                <span>📧</span>
-                <a href="mailto:support@chordcrack.com">support@chordcrack.com</a>
-            </div>
-            <div class="contact-method">
-                <span>⏰</span>
-                <span>Feedback and bug reports welcome</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- Legal Section -->
-    <section class="legal">
-        <div class="legal-container">
-            <div class="legal-links">
-                <a href="privacy.html">Privacy Policy</a>
-                <a href="terms.html">Terms of Service</a>
-            </div>
-            <p>By using ChordCrack, you agree to our Terms of Service and Privacy Policy</p>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2025–2026 Michael Maaseide. All rights reserved.</p>
-        <p>Made with ❤️ for guitarists worldwide</p>
-    </footer>
-
-    <script>
-      // Close the small-screen menu after a choice; native links/disclosures still work without JS.
-      document.querySelectorAll('.mobile-menu a').forEach(link => {
-        link.addEventListener('click', () => link.closest('details').removeAttribute('open'));
-      });
-    </script>
+    <footer class="site-footer"><div class="wrap"><div class="footer-top"><h2>Next chord?<br>Let’s find it.</h2><a class="button button-dark" href="https://apps.apple.com/us/app/chordcrack/id6752358083">Get ChordCrack <span aria-hidden="true">↗</span></a></div><a class="footer-wordmark" href="#home" aria-label="ChordCrack, back to top">ChordCrack</a><div class="footer-bottom"><p>© 2025–2026 Michael Maaseide</p><nav aria-label="Legal and contact"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="mailto:support@chordcrack.com">Contact</a></nav></div></div></footer>
+  </main>
 </body>
 </html>
